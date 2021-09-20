@@ -1,0 +1,8 @@
+Construa um algoritmo (em qualquer linguagem) que resolva o problema da Janela Mínima de uma Substring:
+Pegue duas strings s e t, e retorne a janela mínima de uma substring em s, onde cada caracter de t (pode incluir duplicatas) está inclusa na janela. Se não encontrar a substring, retorne uma string vazia "".
+
+
+Exemplo:
+s = "ADOBECODEBANC", t = "ABC" 
+"BANC" 
+ A janela mínima é a substring "BANC", que inclui os caracteres 'A', 'B' e 'C' da string t.
