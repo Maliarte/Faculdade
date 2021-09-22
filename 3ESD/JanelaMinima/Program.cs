@@ -20,12 +20,14 @@ namespace JanelaMinima
         static void Main(string[] args)
         {
             string texto = "ADOBECODEMYNL";
-            string referencia = "ABL";
+            string referencia = "ABALA";
             string janelaMinima;
             int i = 0;
             int j = 0;
             int tamTrechoDoTexto;
             bool inicia = false;
+
+            referencia = TrataReferencia(referencia);
 
             char[] arrayT = new char[referencia.Length];
             arrayT = referencia.ToCharArray();
@@ -73,6 +75,27 @@ namespace JanelaMinima
                     i++;
                 }
             }
+        }
+
+        static string TrataReferencia(string referencia)
+        {
+            string referenciaTratada;
+            char[] arrayReferencia = new char[referencia.Length];
+            arrayReferencia = referencia.ToCharArray();
+            
+            for (int i = 0; i < referencia.Length; i++)
+            {
+                for (int j = 1 + i; j < referencia.Length; j++)
+                {
+                    if(arrayReferencia[i] == arrayReferencia[j])
+                    {
+                        arrayReferencia[j] = ' ';
+                    }
+                }
+            }
+            referenciaTratada = new string(arrayReferencia);
+            referenciaTratada = referenciaTratada.Replace(" ", "");
+            return referenciaTratada;
         }
     }
 }
