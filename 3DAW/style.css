@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align:  center;
+    margin: 20px;
+}
+
+
+
+tr {
+    height: 30px;
+}
+
+th {
+    background-color: #d2f6fe;
+}
+
+td {
+    background-color: #ebebeb;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    padding: 4px 8px;
+    width: 80px;
+    border-radius: 5px;
+}
+
+.tabela-principal {
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 3px solid blue;
+}
+
+.coluna-nome, 
+.coluna-sobrenome,
+.coluna-email, 
+.coluna-acao {
+    text-align: center;
+}
+
+.coluna-nome {
+    width: 25%;
+}
+.coluna-sobrenome {
+    width: 25%;
+}
+.coluna-email {
+    width: 30%;
+}
+.coluna-acao {
+    width: 20%;
+}
+
+.btn-editar {
+    background-color: #fdee00;
+}
+
+.btn-excluir {
+    background-color: #ff6347;
+}
+
+.btn-adicionar {
+    background-color: #009f6b;
+}
+
+.inserir {
+    width: 70%;
+    margin: 10px auto;
+}
+
+.cadastrar {
+    width: 200px;
+    margin: 50px auto;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ebebeb;
+    background-color: #e7feff;
+}
