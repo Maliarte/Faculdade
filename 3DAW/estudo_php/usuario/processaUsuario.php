@@ -10,7 +10,7 @@ if ($sql->rowCount() > 0){
         echo "<td class='coluna-sobrenome'>".$usuario['sobrenome']."</td>";
         echo "<td class='coluna-email'>".$usuario['email']."</td>";
         echo '<td class="coluna-acao">
-                <a href="editar.php?id='.$usuario['id'].'">
+                <a href="editar_usuario.php?id='.$usuario['id'].'">
                     <button class="btn-editar">Editar</button>
                 </a>
                 <a href="excluir_usuario.php?id='.$usuario['id'].'">

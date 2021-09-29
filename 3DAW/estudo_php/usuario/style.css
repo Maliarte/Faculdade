@@ -34,7 +34,7 @@ button {
 }
 
 .tabela-principal {
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
     border-radius: 5px;
     border: 3px solid blue;
@@ -69,11 +69,11 @@ button {
 }
 
 .btn-adicionar {
-    background-color: #009f6b;
+    background-color: #09d109;
 }
 
 .inserir {
-    width: 70%;
+    width: 90%;
     margin: 10px auto;
 }
 
