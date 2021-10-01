@@ -14,7 +14,7 @@
         Nome:<br>
         <input type="text" name="nome" required><br><br>
         E-mail:<br>
-        <input type="email" name="email"><br><br>
+        <input type="email" name="email" required><br><br>
         Idade:<br>
         <input type="text" name="idade" required><br><br>
         Endereço:<br>
