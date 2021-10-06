@@ -19,7 +19,7 @@ public class Imperial {
 
 		System.out.println("=========================================================");
 		System.out.print("Informe a medida desejada em centímetros ou 0 para sair: ");
-		Scanner input = new Scanner(System.in);
+		//Scanner input = new Scanner(System.in);
 		medida = validaMedida();
 		
 		System.out.println("\n=========================================================\n");
@@ -77,7 +77,7 @@ public class Imperial {
 			medida = validaMedida();
 			System.out.println("\n=========================================================\n");
 		}
-		input.close();
+		//input.close();
 		
 		mensagem(2);
 	}
@@ -143,7 +143,8 @@ public class Imperial {
 	}
 
 	public static int validaOpcao() {
-
+		
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		String vlr = input.next();
 		int opt = tryParseInt(vlr, -1);
@@ -166,6 +167,7 @@ public class Imperial {
 	}
 	
 	public static double validaMedida() {
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		String vlr = input.next();
 		double medida = tryParseDouble(vlr, -1);
