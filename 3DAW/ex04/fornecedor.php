@@ -19,7 +19,7 @@
                 <th>Ação</th>
             </tr>
             <?php
-            require "listaUsuario.php"
+            require "listaFornecedor.php"
             ?>
         </table>
     </div>
