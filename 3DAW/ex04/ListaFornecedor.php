@@ -1,6 +1,6 @@
 <?php
 require "config.php";
-$sql = "SELECT * FROM Fornecedor;";
+$sql = "SELECT * FROM Fornecedor ORDER BY nome_fantasia;";
 
 $sql = $pdo->query($sql);
 
