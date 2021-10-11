@@ -104,7 +104,7 @@ if ($edita) {
         } catch (Exception $e) {
             $sql = "ROLLBACK;";
             $sql = $pdo->query($sql);
-            echo "Erro no cadastro<br>";
+            echo "Erro na edição do Fornecedor<br>";
             $e->getMessage();
         }
     }
