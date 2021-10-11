@@ -4,7 +4,7 @@ $dbuser = "gilmar";
 $dbpass = "senha.123";
 
 try {
-    $PDO = new PDO($dbl, $dbuser, $dbpass);
+    $pdo = new PDO($dbl, $dbuser, $dbpass);
 } catch (PDOException $e) {
     echo "Falha na conexão<br>".$e->getMessage();
 }
