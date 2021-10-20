@@ -43,7 +43,7 @@ if ($valido) {
             </table>
         </form>
         <a href='fornecedor.php'><button>Voltar</button></a>";
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
         echo "Erro na exibição do fornecedor.<br>";
         $e->getMessage();
     }

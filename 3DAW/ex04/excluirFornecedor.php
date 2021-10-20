@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "COMMIT;";
         $sql = $pdo->query($sql);
         echo "Fornecedor apagado com sucesso.";
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
         $sql = "ROLLBACK;";
         $sql = $pdo->query($sql);
         echo "Erro ao apagar o fornecedor.<br>";
