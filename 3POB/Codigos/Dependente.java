@@ -11,12 +11,10 @@ public class Dependente {
 	}
 
 	public String getNome() {
-		// TODO Auto-generated method stub
 		return this.nome;
 	}
 
 	public int getIdade() {
-		// TODO Auto-generated method stub
 		return this.idade;
 	}
 

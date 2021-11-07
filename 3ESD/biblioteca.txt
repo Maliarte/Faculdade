@@ -1,0 +1,5 @@
+criar o protótipo em um arquivo arquivo.h
+criar a implementação do protótipo em um arquivo arquivo.c
+compilar o arquivo c com gcc -c arquivo.c -o arquivo.o
+no arquivo principal do programa fazer a compilação com gcc
+gcc programa.c arquivo.o -o programa.o
