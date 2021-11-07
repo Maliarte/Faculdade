@@ -40,11 +40,9 @@
         .add_btn {
             display: block;
             margin: 10px auto;
-            
             background-color: #93c9e5;
             border: none;
             padding: 5px 8px;
-
         }
 
         .add_btn:hover {
@@ -65,7 +63,6 @@
             background-color: #fada5e;
             cursor: pointer;
         }
-
 
         .del_btn {
             display: inline-block;
@@ -91,6 +88,7 @@
         .cadastrar {
             width: 40%;
         }
+
         .cadastrar td {
             text-align: left;
         }
@@ -105,7 +103,7 @@
     <h1>Pacientes</h1>
     <?php
     require "dados.php";
-    
+
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         echo "<div class='container'>";
         echo "<table>
@@ -120,18 +118,18 @@
             </tr>";
         if (file_exists($csv)) {
             $output = fopen($csv, 'r');
-            
+
             while (list($id, $nome, $nascimento, $cpf, $telefone, $responsavel, $clinica) = fgetcsv($output, 1024, ',')) {
                 echo "<tr>";
-                echo "<td>".strtoupper($nome)."</td>";
+                echo "<td>" . strtoupper($nome) . "</td>";
                 echo "<td>$nascimento</td>";
                 echo "<td>$cpf</td>";
                 echo "<td>$telefone</td>";
-                echo "<td>".strtoupper($responsavel)."</td>";
-                echo "<td>".strtoupper($clinica)."</td>";
+                echo "<td>" . strtoupper($responsavel) . "</td>";
+                echo "<td>" . strtoupper($clinica) . "</td>";
                 echo "<td>
-                            <a href='editar_paciente.php?id=".$id."'><button class='edit_btn'>Editar</button></a>
-                            <a href='apagar_paciente.php?id=".$id."'><button class='del_btn'>Apagar</button></a>
+                            <a href='editar_paciente.php?id=" . $id . "'><button class='edit_btn'>Editar</button></a>
+                            <a href='apagar_paciente.php?id=" . $id . "'><button class='del_btn'>Apagar</button></a>
                          </td>";
                 echo "</tr>";
             }
@@ -185,17 +183,16 @@
             <input class='add_btn' type='submit' value='Adicionar Paciente'>
         </form>
     </div>";
-    echo "<hr>";
+        echo "<hr>";
     }
     ?>
-
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nome = strtolower($_POST['nome']);
         $responsavel = strtolower($_POST['responsavel']);
         $clinica = strtolower($_POST['clinica']);
-        $id = time() * rand(1,9);
+        $id = time() * rand(1, 9);
         $linha = array(
             $id,
             $nome,
@@ -219,7 +216,6 @@
         echo "<a href='paciente.php'><button class='return_btn'>Voltar</button></a>";
     }
     ?>
-
 
 </body>
 

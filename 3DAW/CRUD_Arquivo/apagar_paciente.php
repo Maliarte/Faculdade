@@ -43,7 +43,6 @@
             background-color: #93c9e5;
             border: none;
             padding: 5px 8px;
-
         }
 
         .add_btn:hover {
@@ -64,7 +63,6 @@
             background-color: #fada5e;
             cursor: pointer;
         }
-
 
         .del_btn {
             display: inline-block;
@@ -90,6 +88,7 @@
         .cadastrar {
             width: 40%;
         }
+
         .cadastrar td {
             text-align: left;
         }
@@ -118,45 +117,44 @@
                 <th>Clínica</th>
                 <th>Ação</th>
             </tr>";
-            if (file_exists($csv)) {
-                $id = $_GET['id'];
-                $output = fopen($csv, 'r');
-                $temp = fopen("temp.csv", 'w');
-                $tempPaciente = fopen("tempPaciente.csv", 'w');
-                while (($data = fgetcsv($output, 1024)) != FALSE) {
-                    if (reset($data) == $id) {
-                        fputcsv($tempPaciente, $data);
-                        continue;
-                    }
-                    fputcsv($temp, $data);
+        if (file_exists($csv)) {
+            $id = $_GET['id'];
+            $output = fopen($csv, 'r');
+            $temp = fopen("temp.csv", 'w');
+            $tempPaciente = fopen("tempPaciente.csv", 'w');
+            while (($data = fgetcsv($output, 1024)) != FALSE) {
+                if (reset($data) == $id) {
+                    fputcsv($tempPaciente, $data);
+                    continue;
                 }
-                fclose($temp);
-                fclose($output);
-                fclose($tempPaciente);
-                //rename("temp.csv", "pacientes.csv");
-                
-                $output = fopen("tempPaciente.csv", 'r');
-                
-                while (list($id, $nome, $nascimento, $cpf, $telefone, $responsavel, $clinica) = fgetcsv($output, 1024, ',')) {
-                    
-                    echo "<tr>";
-                    echo "<td>".strtoupper($nome)."</td>";
-                    echo "<td>$nascimento</td>";
-                    echo "<td>$cpf</td>";
-                    echo "<td>$telefone</td>";
-                    echo "<td>".strtoupper($responsavel)."</td>";
-                    echo "<td>".strtoupper($clinica)."</td>";
-                    echo "<td><input class='del_btn' type='submit' value='Apagar Paciente'></td>";
-                    echo "</tr>";
-                }
-                fclose($output);
-                echo "</table>";
-                echo "</form>";
-                echo "</div>";
+                fputcsv($temp, $data);
             }
+            fclose($temp);
+            fclose($output);
+            fclose($tempPaciente);
+            //rename("temp.csv", "pacientes.csv");
+
+            $output = fopen("tempPaciente.csv", 'r');
+
+            while (list($id, $nome, $nascimento, $cpf, $telefone, $responsavel, $clinica) = fgetcsv($output, 1024, ',')) {
+
+                echo "<tr>";
+                echo "<td>" . strtoupper($nome) . "</td>";
+                echo "<td>$nascimento</td>";
+                echo "<td>$cpf</td>";
+                echo "<td>$telefone</td>";
+                echo "<td>" . strtoupper($responsavel) . "</td>";
+                echo "<td>" . strtoupper($clinica) . "</td>";
+                echo "<td><input class='del_btn' type='submit' value='Apagar Paciente'></td>";
+                echo "</tr>";
+            }
+            fclose($output);
+            echo "</table>";
+            echo "</form>";
+            echo "</div>";
+        }
     }
     ?>
-
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -167,7 +165,6 @@
         echo "<a href='paciente.php'><button class='return_btn'>Voltar</button></a>";
     }
     ?>
-
 
 </body>
 
