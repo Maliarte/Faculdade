@@ -1,0 +1,3 @@
+<?php
+$csv= "./pacientes.csv";
+?>
