@@ -1,3 +1,3 @@
 <?php
-$csv= "./pacientes.csv";
+$csv= "pacientes.csv";
 ?>

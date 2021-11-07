@@ -80,11 +80,23 @@
             cursor: pointer;
         }
 
+        .return_btn {
+            display: block;
+            margin: 10px auto;
+            background-color: #93c9e5;
+            border: none;
+            padding: 5px 8px;
+        }
+
         .cadastrar {
             width: 40%;
         }
         .cadastrar td {
             text-align: left;
+        }
+
+        .center {
+            text-align: center;
         }
     </style>
 </head>
@@ -93,7 +105,7 @@
     <h1>Pacientes</h1>
     <?php
     require "dados.php";
-
+    
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         echo "<div class='container'>";
         echo "<table>
@@ -109,7 +121,7 @@
         if (file_exists($csv)) {
             $output = fopen($csv, 'r');
             
-            while (list($nome, $nascimento, $cpf, $telefone, $responsavel, $clinica) = fgetcsv($output, 1024, ',')) {
+            while (list($id, $nome, $nascimento, $cpf, $telefone, $responsavel, $clinica) = fgetcsv($output, 1024, ',')) {
                 echo "<tr>";
                 echo "<td>".strtoupper($nome)."</td>";
                 echo "<td>$nascimento</td>";
@@ -118,12 +130,12 @@
                 echo "<td>".strtoupper($responsavel)."</td>";
                 echo "<td>".strtoupper($clinica)."</td>";
                 echo "<td>
-                            <a href='editar_paciente.php?'$cpf'><button class='edit_btn'>Editar</button></a>
-                            <a href='apagar_paciente.php?'$cpf'><button class='del_btn'>Apagar</button></a>
+                            <a href='editar_paciente.php?id=".$id."'><button class='edit_btn'>Editar</button></a>
+                            <a href='apagar_paciente.php?id=".$id."'><button class='del_btn'>Apagar</button></a>
                          </td>";
                 echo "</tr>";
             }
-            fclose($csv);
+            fclose($output);
         }
         echo "</table>";
         echo "</div>";
@@ -183,7 +195,9 @@
         $nome = strtolower($_POST['nome']);
         $responsavel = strtolower($_POST['responsavel']);
         $clinica = strtolower($_POST['clinica']);
+        $id = time() * rand(1,9);
         $linha = array(
+            $id,
             $nome,
             $_POST['nascimento'],
             $_POST['cpf'],
@@ -195,14 +209,14 @@
             $output = fopen($csv, 'a');
             fputcsv($output, $linha);
             fclose($output);
-            echo "paciente inserido com sucesso";
+            echo "<p class='center'>paciente inserido com sucesso</p>";
         } else {
             $output = fopen($csv, 'w');
             fputcsv($output, $linha);
             fclose($output);
-            echo "paciente inserido com sucesso";
+            echo "<p class='center'>paciente inserido com sucesso</p>";
         }
-        printf("<p><a href='paciente.php'><button>Voltar</button></a></p>");
+        echo "<a href='paciente.php'><button class='return_btn'>Voltar</button></a>";
     }
     ?>
 
